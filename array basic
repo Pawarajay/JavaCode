@@ -1,0 +1,104 @@
+package StriverDsaSheet;
+
+
+public class Array {
+	public static int largestElement(int[] nums) {
+	       int max =nums[0];
+	       
+	       for(int i =0 ;i<nums.length;i++)
+	       {
+	    	   if(nums[i]>max)
+	    	   {
+	    		   max = nums [i];
+	    	   }
+	       }
+	       return max;
+	       
+	    }
+	 public static int secondLargestElement2(int[] nums, int n) {
+	        int max = Integer.MIN_VALUE;
+	        for (int i = 0; i < n; i++) {
+	            if (nums[i] > max) {
+	                max = nums[i];
+	            }
+	        }
+
+	        int result = Integer.MIN_VALUE;
+	        for (int i = 0; i < n; i++) {
+	            if (nums[i] != max && nums[i] > result) {
+	                result = nums[i];
+	            }
+	        }
+
+	        return (result == Integer.MIN_VALUE) ? -1 : result;
+	    }
+	 public static int secondSmallestElement(int [] nums,int n )
+	 {
+		 int min = Integer.MIN_VALUE;
+		 for(int i=0;i<n;i++) {
+			 if(nums[i] < min)
+			 {
+				 min= nums[i];
+			 }
+		 }
+		 int result = Integer.MIN_VALUE;
+		 for(int i=0;i<n;i++)
+		 {
+			 if(nums[i] != min && nums[i] < result )
+			 {
+				 result = nums[i];
+			 }
+		 }
+		 return (result == Integer.MIN_VALUE) ? -1 :result;
+	 }
+	 
+	public static int secondLargestElement(int[] nums, int n) {
+        int largest = nums[n - 1];
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] != largest) {
+                return nums[i]; 
+            }
+        }
+
+        return -1;
+    }
+	public static int smallestELement(int[] nums) {
+	       int max =nums[0];
+	       
+	       for(int i =0 ;i<nums.length;i++)
+	       {
+	    	   if(nums[i]<max)
+	    	   {
+	    		   max = nums [i];
+	    		   
+	    	   }
+	       }
+	       return max;
+	       
+	    }
+	
+	 public static void main(String[] args) {
+		 int []nums = {3,3,6,1};
+		 System.out.println("Smallest element  : " + smallestELement(nums));
+		 System.out.println("Largest element  : " + largestElement(nums));
+		 int []nums2  = { 5,10,15,20,25,30,60};
+		 int n2 = nums2.length;
+		 
+		 System.out.println("Second Largest element :" + secondLargestElement(nums2, n2));
+		 int []nums3  = { 5,5,5,5};
+		 int n3 = nums3.length;
+		 
+		 System.out.println("Second Largest element :" + secondLargestElement(nums3, n3));
+
+		 
+		 int []unsorted = { 5, 10, 60, 20, 30, 25, 15};
+		 int n4 = unsorted.length;
+		 System.out.println("Unsorted array");
+		 System.out.println("Second Largest element :" + secondLargestElement2(unsorted, n4));
+		 System.out.println("Second smallest element :" + secondSmallestElement(nums2, n2));
+
+
+		  }
+	}
+
